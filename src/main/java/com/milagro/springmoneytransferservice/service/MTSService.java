@@ -1,13 +1,13 @@
 package com.milagro.springmoneytransferservice.service;
 
-import com.milagro.springmoneytransferservice.repository.MTSRepository;
+import com.milagro.springmoneytransferservice.repository.MTSOperationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MTSService {
-    MTSRepository mtsRepository;
-    public MTSService(MTSRepository mtsRepository){
-        this.mtsRepository = mtsRepository;
-    }
+    @Autowired
+    MTSOperationRepository mtsOperationRepository;
+
 //    public String getName(String)
 }
