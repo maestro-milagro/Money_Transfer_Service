@@ -1,0 +1,5 @@
+FROM postgres:15
+
+#COPY netology_bank.sql postgres
+
+EXPOSE 5432

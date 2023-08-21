@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  postgres:
+    restart: always
+    image: postgres:15
+#    build:
+#      context: ./
+#      dockerfile: DockerfilePostgres
+    environment:
+      POSTGRES_DB: "netology_bank"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "nhfnfnf1"
+    ports:
+      - "5432:5432"
+  app1:
+    build:
+     context: ./
+     dockerfile: Dockerfile
+    image: 'mymtsapp:latest'
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/netology_bank
+    ports:
+      - '8098:8098'
+    depends_on:
+      - postgres
+  front:
+    build:
+      dockerfile: DockerFileFront
+    container_name: front
+    ports:
+      - "3000:3000"
+

@@ -29,4 +29,5 @@ public class MTSUser {
     private String cardFromNumber;
     private String cardFromValidTill;
     private String cardFromCVV;
+    private String accessCode;
 }
